@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>segedlet</title>
+
+<style>
+    h1 {
+        color: white;
+        text-align: center;
+    }
+    body {
+        background-color: black;
+    }
+    .container {
+        font-size: xx-large;
+        border-bottom: 1px solid white;
+        padding:10px 20px;
+    }
+    .command {
+        color:white;
+    }
+    .comment {
+        color: gray;
+    }
+</style>
+</head>
+<body>
+    <h1>Cisco Parancsok</h1>
+    <div class="container">
+        <div class="comment">
+            Állomásnév megváltoztatása
+        </div>
+        <div class="command">
+            hostname name
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="comment">
+            Enable jelszó beállítás (privilegizalt mod)
+        </div>
+        <div class="command">
+            enable password 12345
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="comment">
+            Enable titkosított jelszó beállítás
+        </div>
+        <div class="command">
+            enable secret 12345
+        </div>
+    </div>
+    <div class="container">
+        <div class="comment">
+            Konzol jelszó beállítás
+        </div>
+        <div class="command">
+            line console 0 <br>
+            password 12345 <br>
+            login
+        </div>
+    </div>
+    <div class="container">
+        <div class="comment">
+            Virtuális terminálok jelszava
+        </div>
+        <div class="command">
+            line vty 0 15 <br>
+            password 12345 <br>
+            login
+        </div>
+    </div>
+    <div class="container">
+        <div class="comment">
+            Összes jelszó beállítása
+        </div>
+        <div class="command">
+            enable secret Gyar1ena <br>
+            line console 0 <br>
+            password 12345678 <br>
+            login <br>
+            exit <br>
+            line vty 0 15 <br>
+            password GYar1vty <br>
+            login
+        </div>
+    </div>
+    <div class="container">
+        <div class="comment">
+            Jelszó titkosítás
+        </div>
+        <div class="command">
+            service password-encryption
+        </div>
+    </div>
+    <div class="container">
+        <div class="comment">
+            Switch alapértelmezett átjáró
+        </div>
+        <div class="command">
+            ip default-gateway 127.0.0.1
+        </div>
+    </div>
+    <div class="container">
+        <div class="comment">
+            Switch interface beállítás
+        </div>
+        <div class="command">
+            iinterface vlan1 <br>
+            ip address 172.19.1.253 255.255.255.0 <br>
+            no shutdown
+        </div>
+    </div>
+    <div class="container">
+        <div class="comment">
+            RIP protokoll 2
+        </div>
+        <div class="command">
+            router rip <br>
+            version 2
+        </div>
+    </div>
+    <div class="container">
+        <div class="comment">
+            OSPF protokoll
+        </div>
+        <div class="command">
+            router ospf 1 <br>
+            network 192.168.2.0 0.0.0.255 area 0 <br>
+            network 192.168.10.0 0.0.0.255 area 0
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="comment">
+            Router interface IP konfiguráció
+        </div>
+        <div class="command">
+            int gi0/0  <br>
+            ip address 192.168.11.33 255.255.255.224 <br>
+            ipv6 enable <br>
+            ipv6 address 2001:db8:acad:1::1/64 <br>
+            ipv6 address fe80::1 link-local <br>
+            no sh
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="comment">
+            Forgalomirányítón engedélyezzük az IPv6-os forgalomirányítást
+        </div>
+        <div class="command">
+            Router(config)#ipv6 unicast-routing
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="comment">
+            Helyi felhasználó létrehozása (jelszóval)
+        </div>
+        <div class="command">
+            Sw(config)#username admin password AdPass123
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="comment">
+            Helyi felhasználó létrehozása (jelszóval)
+        </div>
+        <div class="command">
+            Sw(config)#username admin password AdPass123
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="comment">
+            Virtuális vonalak védelme (helyi felhasználóval)
+        </div>
+        <div class="command">
+            line vty 0 15 <br>
+            login local
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="comment">
+            SSH engedélyezése
+        </div>
+        <div class="command">
+            ip domain-name proba.hu <br>
+            crypto key generate rsa <br>
+            How many bits in the modulus [512]: 1024 <br>
+            line vty 0 15 <br>
+            transport input ssh
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="comment">
+            Interface-hez megjegyzés hozzáadása
+        </div>
+        <div class="command">
+            int gi0/0
+            R(config-if)#description Office_LAN
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="comment">
+            Konzol vonal védelme (globális jelszóval):
+        </div>
+        <div class="command">
+            Sw(config)#line console 0
+            Sw(config-line)#password ConPass123
+            Sw(config-line)#login
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="comment">
+            Helyi felhasználó létrehozása (jelszóval)
+        </div>
+        <div class="command">
+            Sw(config)#username admin password AdPass123
+        </div>
+    </div>
+    <div class="container">
+        <div class="comment">
+            Virtuális vonalak védelme (helyi felhasználóval)
+        </div>
+        <div class="command">
+            Sw(config)#line vty 0 15
+            Sw(config-line)#login local
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="comment">
+            SSH engedélyezése
+        </div>
+        <div class="command">
+            Sw(config)#ip domain-name proba.hu  <br>
+            Sw(config)#crypto key generate rsa <br>
+            How many bits in the modulus [512]: 1024 <br>
+            Sw(config)#line vty 0 15 <br>
+            Sw(config-line)#transport input ssh //Innentől kezdve csak SSH-val érhető el távolról az eszköz
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="comment">
+            Interface-hez megjegyzés hozzáadása
+        </div>
+        <div class="command">
+            R(config)#int gi0/0
+            R(config-if)#description Office_LAN
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="comment">
+            Napi üdvözlő üzenet
+        </div>
+        <div class="command">
+            Sw(config)#banner motd "Csak megfelelo jogosultsaggal hasznalja a kapcsolatot"
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="comment">
+            Szöveges jelszavak titkosítása
+        </div>
+        <div class="command">
+            Sw(config)#service password-encryption
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="comment">
+            Futó konfiguráció mentése az indítási konfigurációs állományba
+        </div>
+        <div class="command">
+            Sw#copy running-config startup-config
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>
